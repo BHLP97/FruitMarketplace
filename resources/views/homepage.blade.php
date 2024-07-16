@@ -3,9 +3,45 @@
 @section('style')
 <style>
   body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
   color: #5a5a5a;
+}
+
+.card-img {
+  overflow: hidden;
+  transition: transform .5s ease;
+  :hover{
+    transform: scale(1.5);
+  }  
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
 }
 
 
@@ -53,23 +89,6 @@
 }
 /* rtl:end:ignore */
 
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  /* rtl:remove */
-  letter-spacing: -.05rem;
-}
-
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -95,134 +114,325 @@
 @endsection
 
 @section('content')
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div class="mx-7">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_1.png" alt=""></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_2.png" alt=""></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_3.png" alt=""></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_1.png" alt=""></svg>
 
-      <div class="container">
-        <div class="carousel-caption text-start">
-          <h1>Example headline.</h1>
-          <p>Some representative placeholder content for the first slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+  <div class="locations">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide mb-3">
+          <div class="card shadow-sm border-0">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_2.png" alt=""></svg>
-
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Some representative placeholder content for the second slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+        <div class="swiper-slide">
+          <div class="card shadow-sm border-0">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="images/slider_3.png" alt=""></svg>
-
-      <div class="container">
-        <div class="carousel-caption text-end">
-          <h1>One more for good measure.</h1>
-          <p>Some representative placeholder content for the third slide of this carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+        <div class="swiper-slide">
+          <div class="card shadow-sm border-0">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="swiper-slide">
+          <div class="card shadow-sm border-0">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card shadow-sm border-0">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-  <!-- Three columns of text below the carousel -->
+  <div class="my-5"></div>
   <div class="row">
-    <div class="col-lg-4">
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-      <h2>Heading</h2>
-      <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-      <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-      <h2>Heading</h2>
-      <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-      <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-      <h2>Heading</h2>
-      <p>And lastly this, the third column of representative placeholder content.</p>
-      <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
-
-
-  <!-- START THE FEATURETTES -->
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-      <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-    </div>
-    <div class="col-md-5">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="card rounded-4 overflow-hidden">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card rounded-4 overflow-hidden">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card rounded-4 overflow-hidden">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card rounded-4 overflow-hidden">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card rounded-4 overflow-hidden">
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+            <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+            <div class="card-body">
+              <h5>Renault KWID</h5>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-      <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+  <div class="my-5"></div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+              <div class="card-img"><img src="https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg"></div>
+              <div class="card-body">
+                <h5>Renault KWID</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-5 order-md-1">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+    <div class="col-lg-3">
+      <div class="card rounded-4 overflow-hidden h-100 p-5">
+        <b>Fruit baskets above 900k</b>
+        <ul>
+          <li>
+            <a>950k Fruit basket</a>
+          </li>
+          <li>
+            <a>1000k Fruit basket</a>
+          </li>
+          <li>
+            <a>1050k Fruit basket</a>
+          </li>
+          <li>
+            <a>1100k Fruit basket</a>
+          </li>
+          <li>
+            <a>1150k Fruit basket</a>
+          </li>
+          <li>
+            <a>1200k Fruit basket</a>
+          </li>
+          <li>
+            <a>1300k Fruit basket</a>
+          </li>
+          <li>
+            <a>1400k Fruit basket</a>
+          </li>
+          <li>
+            <a>1500k Fruit basket</a>
+          </li>
+          <li>
+            <a>1600k Fruit basket</a>
+          </li>
+          <li>
+            <a>1800k Fruit basket</a>
+          </li>
+          <li>
+            <a>2000k Fruit basket</a>
+          </li>
+          <li>
+            <a>2500k Fruit basket</a>
+          </li>
+          <li>
+            <a>3000k Fruit basket</a>
+          </li>
+          <li>
+            <a>3500k Fruit basket</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+  <div class="my-5"></div>
+  <div class="my-5"></div>
+  <div class="my-5"></div>
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <hr class="featurette-divider">
+  <div class="container marketing">
 
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-      <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-    </div>
-    <div class="col-md-5">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-    </div>
-  </div>
+        <h2>Heading</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-  <hr class="featurette-divider">
+        <h2>Heading</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-  <!-- /END THE FEATURETTES -->
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
 
-</div><!-- /.container -->
+  </div><!-- /.container -->
+</div>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+  });
+</script>
 @endsection
