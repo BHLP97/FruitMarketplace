@@ -38,6 +38,7 @@ class MenuController extends Controller
         $item->slug = $request->slug;
         $item->parent_id = $request->parent_id;
         $item->save();
+        notify()->success('A new menu has been created.');
         return redirect()->route("admin.menu");
     }
 
@@ -78,14 +79,17 @@ class MenuController extends Controller
 
     public function deleteChilds($id){
         $item = Menu::find($id);
+        $children_deleted = [];
         if($item){
             if ($item->childs){
                 foreach ($item->childs as $child){
                     $this->deleteChilds($child->id);
+                    array_push($children_deleted,$child->id);
                 }
             }
             $item->delete();
         }
+        return $children_deleted;
     }
 
     /**
@@ -93,7 +97,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        $this->deleteChilds($id);
-        return redirect()->route("admin.menu");
+        $children_deleted = $this->deleteChilds($id);
+        notify()->success('Deletion Successful', 'The menu and its submenus (if it had any) were successfully destroyed.');
+        return response()->json(["children_deleted"=>$children_deleted]);
     }
 }

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $items = User::get();
-        return view('admin/content/user/index', ["users"=>$items]);
+        return view('admin.content.user.index', ["users"=>$items]);
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.user.create');
     }
 
     /**
@@ -32,7 +32,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new User();
+        $item->name = $request->name;
+        $item->email = $request->email;
+        $item->password = bcrypt($request->password);
+        $item->save();
+        return redirect()->route("admin.user");
     }
 
     /**
@@ -46,24 +51,35 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $item = User::find($id);
+        return view("admin.content.user.edit", ["item"=>$item]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $item = User::find($id);
+        if($item){
+            $input = $request->all();
+            $item["name"] = $input["name"];
+            $item["email"] = $input["email"];
+            $item["password"] = bcrypt($input["slug"]);
+            $item->save();
+        }
+        return redirect()->route("admin.user");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $item = User::find($id);
+        $item->delete();
+        return redirect()->route("admin.user");
     }
 }

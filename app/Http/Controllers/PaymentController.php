@@ -12,7 +12,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $payments = Payment::get();
+        return view('admin.content.payment.index', ["payments"=>$payments]);
     }
 
     /**
@@ -20,7 +21,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.payment.create');
     }
 
     /**
@@ -42,9 +43,10 @@ class PaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Payment $payment)
+    public function edit($id)
     {
-        //
+        $item = Payment::find($id);
+        return view("admin.content.payment.edit", ["item"=>$item]);
     }
 
     /**
@@ -58,8 +60,10 @@ class PaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Payment $payment)
+    public function destroy($id)
     {
-        //
+        $item = Payment::find($id);
+        $item->delete();
+        return redirect()->route("admin.payment");
     }
 }

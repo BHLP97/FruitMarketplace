@@ -13,7 +13,8 @@ class RatingController extends Controller
      */
     public function index()
     {
-        //
+        $ratings = Rating::get();
+        return view('admin.content.rating.index', ["ratings"=>$ratings]);
     }
 
     /**
@@ -21,7 +22,7 @@ class RatingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.rating.create');
     }
 
     /**
@@ -71,9 +72,10 @@ class RatingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rating $rating)
+    public function edit($id)
     {
-        //
+        $item = Rating::find($id);
+        return view("admin.content.rating.edit", ["item"=>$item]);
     }
 
     /**
@@ -87,8 +89,10 @@ class RatingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rating $rating)
+    public function destroy($id)
     {
-        //
+        $item = Rating::find($id);
+        $item->delete();
+        return redirect()->route("admin.rating");
     }
 }

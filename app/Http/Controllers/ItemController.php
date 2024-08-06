@@ -15,7 +15,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::get();
+        return view('admin.content.item.index', ["items"=>$items]);
     }
 
     /**
@@ -23,7 +24,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.item.create');
     }
 
     /**
@@ -45,9 +46,10 @@ class ItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Item $item)
+    public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        return view("admin.content.item.edit", ["item"=>$item]);
     }
 
     /**
@@ -61,8 +63,10 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Item $item)
+    public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        $item->delete();
+        return redirect()->route("admin.item");
     }
 }

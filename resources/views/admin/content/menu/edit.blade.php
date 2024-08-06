@@ -9,7 +9,7 @@
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.menu.update",$item->id)}}" method="POST">
+                <form action="{{route('admin.menu.update',$item->id)}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="menuName">Category name</label>
@@ -23,7 +23,7 @@
                         <label for="menuParentId">Menu parent</label>
                         <select class="form-control" id="menuParentId" name="parent_id">
                             <option value="0">No parent category</option>
-                            @include("admin.content.menu.menu_selected_option", ["menus"=>$menu, "level"=>0, "item"=>$item])
+                            @include("admin.content.menu.menu_selected_option", ["menus"=>$menus, "level"=>0, "item"=>$item])
                         </select>
                     </div>
 

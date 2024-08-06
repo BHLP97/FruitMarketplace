@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::get();
+        return view('admin.content.product.index', ["products"=>$products]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.product.create');
     }
 
     /**
@@ -42,9 +43,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $item = Product::find($id);
+        return view("admin.content.product.edit", ["item"=>$item]);
     }
 
     /**
@@ -58,8 +60,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $item = Product::find($id);
+        $item->delete();
+        return redirect()->route("admin.product");
     }
 }

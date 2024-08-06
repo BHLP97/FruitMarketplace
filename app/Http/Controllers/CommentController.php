@@ -15,7 +15,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::get();
+        return view("admin.content.comment.index",["comments"=>$comments]);
     }
 
     /**
@@ -23,15 +24,18 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.content.comment.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $comment = new Comment();
+        $comment->name = $request->content;
+        $comment->save();
+        return redirect()->route("admin.comment");
     }
 
     /**
@@ -45,9 +49,10 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comment $comment)
+    public function edit($id)
     {
-        //
+        $item = Comment::find($id);
+        return view("admin.content.comment.edit", ["item"=>$item]);
     }
 
     /**
@@ -61,8 +66,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
-        //
+        $item = Comment::find($id);
+        $item->delete();
+        return redirect()->route("admin.comment");
     }
 }

@@ -27,6 +27,9 @@
 {{-- Rename section content to content_body --}}
 
 @section('content')
+    <!-- Laravel Notify -->
+    @include('notify::components.notify')
+    @notifyJs
     @yield('content_body')
 @stop
 
@@ -59,17 +62,23 @@
 {{-- Add common CSS customizations --}}
 
 @push('css')
-<style type="text/css">
+    <style type="text/css">
 
-    {{-- You can add AdminLTE customizations here --}}
-    /*
-    .card-header {
-        border-bottom: none;
-    }
-    .card-title {
-        font-weight: 600;
-    }
-    */
+        {{-- You can add AdminLTE customizations here --}}
 
-</style>
+        .main-header {
+            z-index: 0;
+        }
+        /*
+        .card-header {
+            border-bottom: none;
+        }
+        .card-title {
+            font-weight: 600;
+        }
+        */
+
+    </style>
+    <!-- Laravel Notify -->
+    @notifyCss
 @endpush

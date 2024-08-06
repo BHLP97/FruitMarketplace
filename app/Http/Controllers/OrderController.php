@@ -12,7 +12,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::get();
+        return view('admin.content.order.index', ["orders"=>$orders]);
     }
 
     /**
@@ -20,7 +21,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.order.create');
     }
 
     /**
@@ -42,9 +43,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        $item = Order::find($id);
+        return view("admin.content.order.edit", ["item"=>$item]);
     }
 
     /**
@@ -58,8 +60,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
-        //
+        $item = Order::find($id);
+        $item->delete();
+        return redirect()->route("admin.order");
     }
 }

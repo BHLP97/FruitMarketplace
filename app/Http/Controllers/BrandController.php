@@ -24,7 +24,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.brand.create');
     }
 
     /**
@@ -32,7 +32,10 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brand = new Brand();
+        $brand->name = $request->name;
+        $brand->save();
+        return redirect()->route("admin.brand");
     }
 
     /**
@@ -46,9 +49,10 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        //
+        $item = Brand::find($id);
+        return view("admin.content.brand.edit", ["item"=>$item]);
     }
 
     /**
@@ -62,8 +66,10 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function destroy($id)
     {
-        //
+        $item = Brand::find($id);
+        $item->delete();
+        return redirect()->route("admin.brand");
     }
 }

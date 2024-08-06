@@ -48,7 +48,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::post('/store', [MenuController::class, 'store'])->name('admin.menu.store');
         Route::get('/edit/{id}', [MenuController::class, 'edit'])->name('admin.menu.edit');
         Route::post('/update/{id}', [MenuController::class, 'update'])->name('admin.menu.update');
-        Route::get('/destroy/{id}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
+        Route::delete('/destroy/{id}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
     });
     Route::prefix('category')->group(function () {
         Route::get('/{model_type}/', [CategoryController::class, 'index'])->name('admin.category');
@@ -100,11 +100,11 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     });
     Route::prefix('admin')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('admin.admin');
-        Route::get('/create', [UserController::class, 'create'])->name('admin.admin.create');
-        Route::post('/store', [UserController::class, 'store'])->name('admin.admin.store');
-        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.admin.edit');
-        Route::post('/update/{id}', [UserController::class, 'update'])->name('admin.admin.update');
-        Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('admin.admin.destroy');
+        Route::get('/create', [AdminController::class, 'create'])->name('admin.admin.create');
+        Route::post('/store', [AdminController::class, 'store'])->name('admin.admin.store');
+        Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admin.admin.edit');
+        Route::post('/update/{id}', [AdminController::class, 'update'])->name('admin.admin.update');
+        Route::get('/destroy/{id}', [AdminController::class, 'destroy'])->name('admin.admin.destroy');
     });
     Route::prefix('config')->group(function () {
         Route::get('/', [ConfigController::class, 'index'])->name('admin.config');

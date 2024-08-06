@@ -39,4 +39,26 @@
       background-color: #dddddd;
     }
 </style>
+<script>
+    function deleteitem(id){
+        if(confirm("Are you sure you want to delete this?")){
+            $.ajax({
+                type: 'delete',
+                url: 'menu/destroy/'+id,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                traditional: true,
+                success: function (data) {
+                    $('#'+id).parent().remove()
+                    data.children_deleted.forEach(el => {
+                        $('#'+el).parent().remove()
+                    })
+                }
+            });
+        }
+    }
+</script>
 @endsection

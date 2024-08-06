@@ -18,10 +18,10 @@
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.user.store")}}" method="POST">
+                <form action="{{route('admin.user.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="userName">Tên</label>
+                        <label for="userName">Name</label>
                         <input type="text" class="form-control" id="userName" name="name" placeholder="Input username...">
                     </div>
                     <div class="form-group">

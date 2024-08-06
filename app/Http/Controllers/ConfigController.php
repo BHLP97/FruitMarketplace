@@ -12,7 +12,8 @@ class ConfigController extends Controller
      */
     public function index()
     {
-        //
+        $configs = Config::get();
+        return view("admin.content.config.index",["configs"=>$configs]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ConfigController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.content.config.create");
     }
 
     /**
@@ -28,7 +29,10 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $config = new Config();
+        $config->key = $request->key;
+        $config->save();
+        return redirect()->route("admin.config");
     }
 
     /**
@@ -42,15 +46,16 @@ class ConfigController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Config $config)
+    public function edit($id)
     {
-        //
+        $item = Config::find($id);
+        return view("admin.content.config.edit", ["item"=>$item]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Config $config)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -58,8 +63,10 @@ class ConfigController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Config $config)
+    public function destroy($id)
     {
-        //
+        $item = Config::find($id);
+        $item->delete();
+        return redirect()->route("admin.config");
     }
 }

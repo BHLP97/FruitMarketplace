@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.admin.create');
     }
 
     /**
@@ -45,9 +45,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
-        //
+        $item = Admin::find($id);
+        return view("admin.content.admin.edit", ["item"=>$item]);
     }
 
     /**
@@ -61,8 +62,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        //
+        $item = Admin::find($id);
+        $item->delete();
+        return redirect()->route("admin.admin");
     }
 }
