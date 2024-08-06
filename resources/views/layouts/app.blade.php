@@ -32,7 +32,8 @@
 <body>
     <div id="app">
         @include('components.navBar')
-
+        @include('components.cartSidebar')
+        
         <main class="">
             @yield('content')
         </main>

@@ -1,4 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light bg-success bg-gradient py-4">
+<style>
+    .navbar:after {
+      background: url('https://bizweb.dktcdn.net/100/065/538/themes/838571/assets/bg-after-header.png?1708919472176') no-repeat top center;
+      position: absolute;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+</style> 
+<nav class="navbar navbar-expand-md navbar-light py-4" style="background-color:#3ba66b">
   <div class="container">
     <div class="row align-items-center">
         
@@ -64,7 +72,8 @@
           </form>
         </li>
         <i class="nav-item nav-link fa fa-heart text-white" aria-hidden="false"></i>
-        <i class="nav-item nav-link fa fa-shopping-bag text-white" aria-hidden="false"></i>
+        <i class="nav-item nav-link fa fa-shopping-bag text-white" aria-hidden="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+        
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <i class="fa fa-user-circle text-white" aria-hidden="false"></i>
