@@ -29,7 +29,11 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Order();
+
+        $item->save();
+        notify()->success('A new order has been created.');
+        return redirect()->route("admin.order");
     }
 
     /**

@@ -6,16 +6,16 @@
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between">
                 <div class="table-responsive bs-example widget-shadow">
-                    <a href="{{route('admin.comment.create')}}"><button type="button" class="btn btn-outline-success mb-3">Add comment</button></button></a>
+                    <a href="{{route('admin.comment.create')}}"><button type="button" class="btn btn-outline-success my-3">Add comment</button></button></a>
                     <div class="flex justify-center">
                         <table class="table table-bordered">
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Slug</th>
+                                <th>Author</th>
+                                <th>Contents</th>
                                 <th>Actions</th>
                             </tr>
-                            @include("admin.content.category.row_table", ["categories"=>$categories, "level"=>0])
+                            @include("admin.content.comment.row_table", ["comments"=>$comments, "level"=>0])
                         </table>
                     </div>
                 </div>  

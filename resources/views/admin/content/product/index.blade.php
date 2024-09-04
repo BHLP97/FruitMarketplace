@@ -5,7 +5,7 @@
     <div class="app-content">
         <div class="tables">
             <div class="table-responsive bs-example widget-shadow">
-                <a href="{{route('admin.product.create')}}"><button type="button" class="btn btn-success">Add entry</button></a>
+                <a href="{{route('admin.product.create')}}"><button type="button" class="btn btn-outline-success my-3">Add a new Product</button></button></a>
                 <div class="flex justify-center">
                     <table class="table table-bordered">
                         <tr>

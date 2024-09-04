@@ -98,7 +98,10 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $children_deleted = $this->deleteChilds($id);
-        notify()->success('Deletion Successful', 'The menu and its submenus (if it had any) were successfully destroyed.');
+
+        // broadcast event deletion to client instead because this method requires a page reload
+        // notify()->success('Deletion Successful', 'The menu and its submenus (if it had any) were successfully destroyed.');
+        
         return response()->json(["children_deleted"=>$children_deleted]);
     }
 }

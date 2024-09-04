@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\WebController; 
 use App\Http\Controllers\MenuController; 
 use App\Http\Controllers\AdminController; 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
@@ -51,12 +52,12 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::delete('/destroy/{id}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
     });
     Route::prefix('category')->group(function () {
-        Route::get('/{model_type}/', [CategoryController::class, 'index'])->name('admin.category');
-        Route::get('/{model_type}/create', [CategoryController::class, 'create'])->name('admin.category.create');
-        Route::post('/{model_type}/store', [CategoryController::class, 'store'])->name('admin.category.store');
-        Route::get('/{model_type}/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
-        Route::post('/{model_type}/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
-        Route::get('/{model_type}/destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+        Route::get('/{model_type}/', [CategoryController::class, 'index'])->name('admin.category.{model_type}');
+        Route::get('/{model_type}/create', [CategoryController::class, 'create'])->name('admin.category.{model_type}.create');
+        Route::post('/{model_type}/store', [CategoryController::class, 'store'])->name('admin.category.{model_type}.store');
+        Route::get('/{model_type}/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.{model_type}.edit');
+        Route::post('/{model_type}/update/{id}', [CategoryController::class, 'update'])->name('admin.category.{model_type}.update');
+        Route::get('/{model_type}/destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.{model_type}.destroy');
     });
     Route::prefix('post')->group(function () {
         Route::get('/', [PostController::class, 'index'])->name('admin.post');
@@ -65,6 +66,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::get('/edit/{id}', [PostController::class, 'edit'])->name('admin.post.edit');
         Route::post('/update/{id}', [PostController::class, 'update'])->name('admin.post.update');
         Route::get('/destroy/{id}', [PostController::class, 'destroy'])->name('admin.post.destroy');
+    });
+    Route::prefix('brand')->group(function () {
+        Route::get('/', [BrandController::class, 'index'])->name('admin.brand');
+        Route::get('/create', [BrandController::class, 'create'])->name('admin.brand.create');
+        Route::post('/store', [BrandController::class, 'store'])->name('admin.brand.store');
+        Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('admin.brand.edit');
+        Route::post('/update/{id}', [BrandController::class, 'update'])->name('admin.brand.update');
+        Route::get('/destroy/{id}', [BrandController::class, 'destroy'])->name('admin.brand.destroy');
     });
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('admin.product');

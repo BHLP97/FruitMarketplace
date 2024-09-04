@@ -5,11 +5,11 @@
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between">
                <div class="iq-header-title">
-                  <h4 class="card-title">Add new menu entry</h4>
+                  <h4 class="card-title">Add a new menu/sub-menu</h4>
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.menu.store")}}" method="POST">
+                <form action='{{route("admin.menu.store")}}' method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="menuName">Menu name</label>

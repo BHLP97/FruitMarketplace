@@ -9,7 +9,7 @@
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.category.update",$item->id)}}" method="POST">
+                <form action='{{route("admin.category.update",$item->id)}}' method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="categoryName">Category name</label>

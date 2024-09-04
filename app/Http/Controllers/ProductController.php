@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,7 +23,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.content.product.create');
+        $brands = Brand::get();
+        $categories = Category::where('type', 'product')->get();
+        return view('admin.content.product.create', ['brands' => $brands,'categories' => $categories]);
     }
 
     /**
@@ -29,7 +33,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
+        $product->slug = $request->slug;
+        $product->image_id = $request->image_id;
+        $product->status = 1;
+        $product->save();
+        return redirect()->route('admin.product');
     }
 
     /**

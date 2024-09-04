@@ -1,18 +1,20 @@
 @extends('layout.cms')
 
 @section('content_body')
+@php
+    $model_type = str_replace("/admin/category/","", $_SERVER['REDIRECT_URL']);
+@endphp
 <div id='page-wrapper'>
     <div class="app-content">
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between">
                 <div class="table-responsive bs-example widget-shadow">
-                    <a href="{{route('admin.category.create')}}"><button type="button" class="btn btn-outline-success mb-3">Add a new Category</button></button></a>
+                    <a href="{{route('admin.category.{model_type}.create', $model_type)}}"><button type="button" class="btn btn-outline-success my-3">Add a new {{$model_type}} Category</button></button></a>
                     <div class="flex justify-center">
                         <table class="table table-bordered">
                             <tr>
                                 <th>ID</th>
                                 <th>Image</th>
-                                <th>Type</th>
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Actions</th>

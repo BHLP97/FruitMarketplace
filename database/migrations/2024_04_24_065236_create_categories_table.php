@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('type');
             $table->string('slug');
-            $table->bigInteger('image_id');
-            $table->bigInteger('parent_id');
+            $table->bigInteger('image_id')->nullable();
+            $table->bigInteger('parent_id')->nullable();
+            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -30,7 +30,14 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Rating();
+        $item->user_id = $request->user_id;
+        $item->product_id = $request->product_id;
+        $item->value = $request->value;
+        $item->content = $request->content;
+        $item->save();
+        notify()->success('A new rating has been created.');
+        return redirect()->route("admin.order");
     }
 
     public function writeRating(Request $request){

@@ -29,7 +29,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Post();
+        $item->category_id = $request->category_id;
+        $item->user_id = $request->user_id;
+        $item->title = $request->title;
+        $item->preview = $request->preview;
+        $item->description = $request->description;
+        $item->content = $request->content;
+        $item->save();
+        notify()->success('A new post has been created.');
+        return redirect()->route("admin.order");
     }
 
     /**

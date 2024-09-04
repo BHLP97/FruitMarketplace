@@ -14,7 +14,7 @@
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between">
                 <div class="table-responsive bs-example widget-shadow">
-                    <a href="{{route('admin.user.create')}}"><button type="button" class="btn btn-outline-success mb-3">Add a User</button></button></a>
+                    <a href="{{route('admin.user.create')}}"><button type="button" class="btn btn-outline-success my-3">Add a User</button></button></a>
                     <div class="flex justify-center">
                         <table class="table table-bordered">
                             <tr>

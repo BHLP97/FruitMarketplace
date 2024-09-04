@@ -24,7 +24,8 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view("admin.content.comment.create");
+        $comments = Comment::get();
+        return view("admin.content.comment.create", ["comments"=>$comments]);
     }
 
     /**

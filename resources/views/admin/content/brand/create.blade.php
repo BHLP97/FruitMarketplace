@@ -9,15 +9,11 @@
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.brand.store")}}" method="POST">
+                <form action='{{route("admin.brand.store")}}' method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="brandName">Tên của brand</label>
-                        <input type="text" class="form-control" id="brandName" name="name" placeholder="Enter the category's name...">
-                    </div>
-                    <div class="form-group">
-                        <label for="brandSlug">Slug</label>
-                        <input type="text" class="form-control" id="brandSlug" name="slug" placeholder="Nhập slug của danh mục...">
+                        <label for="brandName">Brand name</label>
+                        <input type="text" class="form-control" id="brandName" name="name" placeholder="Enter the brand's name...">
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit</button>

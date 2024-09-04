@@ -14,35 +14,35 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($model_type)
     {
-        $categories = Category::where('parent_id','=',0)->with('childs')->get();
+        $categories = Category::where('type', $model_type)->where('parent_id','=',0)->with('childs')->get();
         return view("admin.content.category.index",["categories"=>$categories]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($model_type)
     {
-        $categories = Category::where('parent_id','=',0)->with('childs')->get();
+        $categories = Category::where('type', $model_type)->where('parent_id','=',0)->with('childs')->get();
         return view("admin.content.category.create", ["categories"=>$categories]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $model_type)
     {
         $category = new Category();
         $category->name = $request->name;
-        $category->type = $request->type;
+        $category->type = $model_type;
         $category->slug = $request->slug;
         $category->image_id = $request->image_id;
         $category->parent_id = $request->parent_id;
         $category->status = 1;
         $category->save();
-        return redirect()->route("admin.category");
+        return redirect()->route('admin.category.{model_type}', $model_type);
     }
 
     /**
@@ -56,17 +56,17 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit($id, $model_type)
     {
         $item = Category::find($id);
-        $categories = Category::where('parent_id','=',0)->with('childs')->get();
+        $categories = Category::where('type', $model_type)->where('parent_id','=',0)->with('childs')->get();
         return view("admin.content.category.edit", ["categories"=>$categories, "item"=>$item]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $model_type, $id)
     {
         $item = Category::find($id);
         if($item){
@@ -79,7 +79,7 @@ class CategoryController extends Controller
             $item->save();
         }
 
-        return redirect()->route("admin.category.index");
+        return redirect()->route("admin.category.".$model_type);
     }
 
     public function deleteChilds($id){
@@ -97,9 +97,9 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($id, $model_type)
     {
         $this->deleteChilds($id);
-        return redirect()->route("admin.category.index");
+        return redirect()->route("admin.category.{model_type}", $model_type);
     }
 }

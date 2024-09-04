@@ -364,11 +364,11 @@ return [
                     'submenu' => [
                         [
                             'text' => 'list',
-                            'url' => 'admin/productcategory/',
+                            'url' => 'admin/category/product',
                         ],
                         [
                             'text' => 'create',
-                            'url' => 'admin/productcategory/create',
+                            'url' => 'admin/category/product/create',
                         ],
                     ],
                 ],
@@ -470,11 +470,11 @@ return [
                     'submenu' => [
                         [
                             'text' => 'list',
-                            'url' => 'admin/postcategory/',
+                            'url' => 'admin/category/post',
                         ],
                         [
                             'text' => 'create',
-                            'url' => 'admin/postcategory/create',
+                            'url' => 'admin/category/post/create',
                         ],
                     ],
                 ],

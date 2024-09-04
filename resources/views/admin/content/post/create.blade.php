@@ -9,22 +9,11 @@
                </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route("admin.menu.store")}}" method="POST">
+                <form action='{{route("admin.menu.store")}}' method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="menuName">Tên của menu</label>
-                        <input type="text" class="form-control" id="menuName" name="name" placeholder="Enter the category's name...">
-                    </div>
-                    <div class="form-group">
-                        <label for="menuSlug">Slug</label>
-                        <input type="text" class="form-control" id="menuSlug" name="slug" placeholder="Nhập slug của danh mục...">
-                    </div>
-                    <div class="form-group">
-                        <label for="menuParentId">Menu cha</label>
-                        <select class="form-control" id="menuParentId" name="parent_id">
-                            <option value="0">Không có menu cha</option>
-                            @include('admin.content.menu.menu_option', ["menus" =>$menus, 'level' => 0])
-                        </select>
+                        <label for="menuName">Post title</label>
+                        <input type="text" class="form-control" id="menuName" name="name" placeholder="Enter the title of the post...">
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit</button>
