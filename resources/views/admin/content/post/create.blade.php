@@ -1,4 +1,5 @@
 @extends('layout.cms')
+
 @section('content_body')
 <div id='page-wrapper'>
     <div class="app-content">
@@ -15,7 +16,7 @@
                         <label for="menuName">Post title</label>
                         <input type="text" class="form-control" id="menuName" name="name" placeholder="Enter the title of the post...">
                     </div>
-
+                    @include('frontend/tinymce',['title'=>'Contents of the post'])
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>

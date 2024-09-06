@@ -29,6 +29,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/tinymce', function () {
+    return view('tinymce');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/signin', [LoginController::class, 'showUserLoginForm'])->name('frontend.login-view');

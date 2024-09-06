@@ -65,7 +65,6 @@
     <style type="text/css">
 
         {{-- You can add AdminLTE customizations here --}}
-
         .main-header {
             z-index: 0;
         }
