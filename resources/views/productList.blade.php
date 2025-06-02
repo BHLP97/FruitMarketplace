@@ -3,13 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"></div>
+        <div class="sidebar col-lg-3 col-md-12 col-sm-12 col-12">
+            
+        </div>
+        <div class="fruit-baskets col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="fruit-basket-filter">
 
-                <div class="card-body">
-                    
-                </div>
+            </div>
+            <div class="fruit-basket-list">
+                @include('partials.swiperSlide', ['imgSource' => "https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg", 'body' => "Renault KWID"])
+                @include('partials.swiperSlide', ['imgSource' => "https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg", 'body' => "Renault KWID"])
+                @include('partials.swiperSlide', ['imgSource' => "https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg", 'body' => "Renault KWID"])
+                @include('partials.swiperSlide', ['imgSource' => "https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg", 'body' => "Renault KWID"])
+                @include('partials.swiperSlide', ['imgSource' => "https://img.gaadicdn.com/images/carexteriorimages/upcoming/360x240/Jeep/Jeep-Renegade/047.jpg", 'body' => "Renault KWID"])
             </div>
         </div>
     </div>

@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// Main styling
+@import 'main';
+
+// Login/Register styling
+@import 'accounts';
+
+// Widget styling
+@import 'widgets';
+
+// Breadcrumb styling
+@import 'breadcrumbs';

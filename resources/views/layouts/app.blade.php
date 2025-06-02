@@ -26,18 +26,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     @yield('style')
-
+ 
     @yield('head')
 </head>
 <body>
     <div id="app">
-        @include('components.navBar')
-        @include('components.cartSidebar')
+        @include('partials.header')
+        @include('partials.cartSidebar')
         
+
         <main class="">
+            @if (!Request::is("/"))
+                @include('components.breadcrumb', ['breadcrumbs' => $breadcrumbs ?? []])
+            @endif
             @yield('content')
         </main>
-    
+
+        @include('partials.footer')
     </div>
+    @yield('script')
 </body>
 </html>

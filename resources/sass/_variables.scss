@@ -13,7 +13,7 @@ $danger: #fe0000;
 $theme-colors: () !default;
 $theme-colors: map-merge(
   (
-    "success":    $success,
+    "custom-success":    $success,
     "warning":    $warning,
     "danger":     $danger,
   ),

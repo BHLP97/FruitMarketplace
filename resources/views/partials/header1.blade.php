@@ -1,11 +1,3 @@
-<style>
-    .navbar:after {
-      background: url('https://bizweb.dktcdn.net/100/065/538/themes/838571/assets/bg-after-header.png?1708919472176') no-repeat top center;
-      position: absolute;
-      margin-top: 1.5rem;
-      width: 100%;
-    }
-</style> 
 <nav class="navbar navbar-expand-md navbar-light py-4" style="background-color:#3ba66b">
   <div class="container">
     <div class="row align-items-center">
@@ -58,8 +50,8 @@
           {{  __('Contact info') }}
         </a>
       </ul>
-      <div class="navbar-nav logo">
-        <img src="asset('images/logo.png)" alt="">
+      <div class="navbar-nav logo col-xl-2 col-lg-3 col-md-3">
+        <img src="{{asset('images/logo.png')}}" alt="">
       </div>
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav gap-2 ms-auto align-items-center">
