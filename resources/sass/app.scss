@@ -1,0 +1,20 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Main styling
+@import 'main';
+
+// Login/Register styling
+@import 'accounts';
+
+// Widget styling
+@import 'widgets';
+
+// Breadcrumb styling
+@import 'breadcrumbs';
